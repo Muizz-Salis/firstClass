@@ -1,0 +1,24 @@
+<p>tempdriven-f works!</p>
+<div class="container-fluid">
+    <div class="col-8 mx-auto shadow">
+        <div class="col-10 mx-auto">
+            <h1 class="text-center text-primary">Template Driven Form</h1>
+            <form action="">
+                <input type="text" name="firstname" [ngModel]="fname" class="form-control my-2" #firstname="ngModel" [class.is-valid]="firstname.valid && firstname.dirty" minlength="5" [class.is-invalid]="firstname.invalid">
+                <div *ngIf="firstname.invalid && firstname.dirty">
+                    <span *ngIf="firstname.errors?.['minlength']" class="text-danger" >The minimum required is 5</span>
+                </div>
+
+                <input type="text" name="lname" [ngModel]="lname" class="form-control my-2" #lastname="ngModel" [class.is-invalid]="lastname.valid" [class.is-invalid]="lastname.invalid && lastname.dirty"  required>
+
+                <div *ngIf="lastname.invalid && lastname.touched">
+                    <span *ngIf="lastname.errors?.['required']" class="text-danger" >This field is required!</span>
+                </div>
+
+                <button class="btn btn-primary w-50">Submit</button>
+                
+            </form>
+        </div>
+
+    </div>
+</div>

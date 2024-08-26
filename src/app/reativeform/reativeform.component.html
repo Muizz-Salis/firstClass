@@ -1,0 +1,49 @@
+<p>reativeform works!</p>
+<div class="container">
+        <div class="col-8 mx-auto shadow p-3">
+        <div class="col-10 mx-auto">
+            <h1 class="text-success fw-bolder">Reactive Form Module</h1>
+    <form [formGroup]="formone">
+
+        <input type="text" placeholder="Username" name="username"  formControlName="username" class="form-control mb-2" [class.is-valid]="formone.get('username')?.valid" [class.is-invalid]="formone.get('username')?.invalid && formone.get('username')?.touched">
+        <div *ngIf="formone.get('username')?.invalid && formone.get('username')?.touched">
+            <span class="text-danger" *ngIf="formone.get('username')?.errors?.['required']">This field is required
+            </span>
+            </div>
+
+        <input type="text" placeholder="First Name" name="firstname"  formControlName="firstname" class="form-control mb-2" [class.is-valid]="formone.get('firstname')?.valid" [class.is-invalid]="formone.get('firstname')?.invalid && formone.get('firstname')?.touched">
+        <div *ngIf="formone.get('firstname')?.invalid && formone.get('firstname')?.touched">
+            <span class="text-danger" *ngIf="formone.get('firstname')?.errors?.['required']">This field is required
+            </span> 
+            <span class="text-danger" *ngIf="formone.get('firstname')?.errors?.['pattern']">Name must start with uppercase letter.</span>
+            </div>
+
+        <input type="text" placeholder="Last Name" name="lastname" formControlName="lastname" class="form-control mb-2" formControlName="lastname" [class.is-valid]="formone.get('lastname')?.valid" [class.is-invalid]="formone.get('lastname')?.invalid && formone.get('lastname')?.touched">
+        
+        <div *ngIf="formone.get('lastname')?.invalid && formone.get('lastname')?.touched">
+            <span class="text-danger" *ngIf="formone.get('firstname')?.errors?.['required']">This is required</span>
+
+            <span class="text-danger" *ngIf="formone.get('firstname')?.errors?.['pattern']">Last name must start with uppercase letter</span>
+        </div>
+
+        <input type="text" placeholder="Email" name="email" formControlName="email" class="form-control mb-2" formControlName="email" [class.is-valid]="formone.get('email')?.valid" [class.is-invalid]="formone.get('email')?.invalid && formone.get('email')?.touched">
+        <div *ngIf="formone.get('email')?. invalid && formone.get('email')?.touched">
+            <span class="text-danger" *ngIf="formone.get('email')?.errors?.['required']">This is required</span>
+            <span class="text-danger" *ngIf="formone.get('email')?.errors?.['pattern']">Please enter a valid email address</span>
+        </div>
+
+        <input type="password" placeholder="Password" name="password" formControlName="password" class="form-control mb-2" formControlName="password" [class.is-valid]="formone.get('password')?.valid" [class.is-invalid]="formone.get('password')?.invalid && formone.get('password')?.touched">
+
+        <div *ngIf="formone.get('password')?.invalid && formone.get('password')?.touched">
+            <span class="text-danger" *ngIf="formone.get('password')?.errors?.['required']">Password is required</span>
+            <span class="text-danger" *ngIf="formone.get('password')?.errors?.['pattern']">Password must contain at least one uppercase letter, one lowercase letter, and one special character.</span>
+        </div>
+        
+
+        <input type="checkbox" formControlName="terms">
+        <label for="">I agree to the above terms and conditions</label>
+
+        <button [disabled]="formone.invalid" class="text-white px-4 py-2 mt-3 rounded bg-success d-block" (click)="signup()" >Sign Up</button>
+</form>
+</div>
+</div>

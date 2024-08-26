@@ -1,0 +1,10 @@
+#available{
+    background-color: green;
+    color: white;
+}
+
+#notAvailable{
+    background-color: grey;
+    color: yellow;
+}
+

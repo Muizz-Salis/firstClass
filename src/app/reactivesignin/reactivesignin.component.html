@@ -1,0 +1,19 @@
+<p>reactivesignin works!</p>
+
+<div>
+    <div class="col-6  shadow mx-auto px-4">
+        <h1>Rective Signin Form</h1>
+        <form [formGroup]="formtwo">
+            <input type="text" formControlName="email" class="form-control mb-2" name="email" placeholder="Email">
+            <div *ngIf="formtwo.get('email')?.invalid && formtwo.get('email')?.touched">
+                <span class="text-danger" *ngIf="formtwo.get('email')?.errors?.['required']">This field is required
+                </span> 
+            </div>
+            <input type="password" class="form-control mb-2" placeholder="Password" formControlName="password" name="passoword">
+            <div *ngIf="formtwo.get('password')?.invalid && formtwo.get('password')?.touched">
+                <span class="text-danger" *ngIf="formtwo.get('password')?.errors?.['required']">Password is required</span>
+            </div>
+            <button class="btn btn-success text-white"  (click)="signin()" type="submit">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<p>eventemitterchild works!</p>
+
+<div class="mt-5 p-3 shadow">
+<h1 class="text--success">This is the child component</h1>
+<p>Msg from parent:{{msgfromparent}}</p>
+<p>pls work now{{mustwork}}</p>
+<input type="text" [(ngModel)]="msgtoparent" class="form-control my-2">
+<button class="btn btn-outline-success"(click)="sendmsg()">Send Msg To Parent</button>
+</div>

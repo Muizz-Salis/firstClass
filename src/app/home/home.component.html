@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+
+<div>
+    <a href = "link">Click me</a>
+
+    <input type="checkbox" name="terms" [(ngModel)]="terms"/>
+    <label for="">I agree tot he terms and conditions</label>
+    <button [disabled] = "!terms">Click</button>
+
+    <input type="text" class="form-control" [(ngModel)]="userInput">
+    <p>{{userInput}}</p>
+</div>
+<!-- Css styling -->
+<div>
+    @for(item of items; track item.id){
+        <div class="card px-1 col-6 mx-auto" [id]="item.available ? 'available' : 'notAvailable'">
+            {{item.name}} | {{item.price}}
+            @if(!item.available){
+                <p>Out of Stock</p>
+            }
+        </div>
+    }
+</div>
+<!-- Bootstrap Styling -->
+<div>
+    @for(item of items; track item.id){
+        <div [class]="item.available ? 'bg-success mx-auto col-6 px-1 card available' : 'bg-warning mx-auto px-1 col-6 notAvailable'">
+            {{item.name}} | {{item.price}}
+            @if(!item.available){
+                <p>Out of Stock</p>
+            }
+        </div>
+    }
+</div>
+
+
+<!-- Functions -->
+<!-- <button class="btn btn-md bg-info text-light px-1" (click)="myFunction()">Click Me</button> -->
+
+
+<!-- <div>
+    *ngFor=("let book of books;trackBy : textbbook"){
+        <div (click)="changeColor()" [ngClass]="{'bg-success mx-auto col-6 px-1 card available':book.available, 'bg-dark text-white mx-auto px-1 col-6': !book.available}">
+            {{book.name}} | {{book.price}}
+          
+        </div>
+    }
+    
+    
+
+</div> -->
